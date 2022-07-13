@@ -1,0 +1,62 @@
+
+import java.sql.Time;
+
+public class HW4 {
+
+    //#1 Write a method basicArray that does not take any inputs.
+    public static void basicArray() {
+        int nums[] = new int[50]; //Declare an array with 50 elements 
+        for (int i = 0; i < 50; i++) {
+            nums[i] = i + 1;  // Store the values 1 through 50
+        }
+        for (int i = 0; i < 50; i++) {
+            nums[i] += 10; // add 10 to each entry of the array 
+        }
+        System.out.println("nums[] array:");
+        for (int i = 0; i < 50; i++) {
+            System.out.print(nums[i] + " "); // print every element of nums
+        }
+    }
+
+    //#2 Write a method printElements that accepts an array of Strings as the input parameter argument.
+    public static void printElements(String arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].getClass().getSimpleName().equalsIgnoreCase("String")) {
+                System.out.print(arr[i] + ", ");
+            } //  make sure elements are strings and print array elements to String
+        }
+        System.out.println();
+    }
+
+    // #3 2D int arrays
+    public static void printElements(int arr[][]) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                System.out.printf("%3d ", arr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    // #4 time array
+    public static void printElements(Time arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            // make sure each element is time object
+            if (arr[i].getClass().getSimpleName().equalsIgnoreCase("Time")) {
+                System.out.println(arr[i]);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String tenStrings[] = {"first", "second", "third", "fourth", "fifth", "sixth",
+            "seventh", "eighth", "ninth", "tenth"}; //#5
+        printElements(tenStrings);
+        Time objects[] = {new Time(45678), new Time(993311), new Time(9852487)};
+        printElements(objects); // #6
+        int values[][] = new int[10][20]; // #7
+        System.out.println("Nums of rows: " + values.length);
+        System.out.println("Nums of colums: " + values[0].length);
+        printElements(values);
+    }
+}
